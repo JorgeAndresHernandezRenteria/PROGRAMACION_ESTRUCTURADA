@@ -97,16 +97,16 @@ def menu_notas(usuario_id,nombre,apellidos):
                  id = input("\t \t ID de la nota a actualizar: ")
                  titulo = input("\t Nuevo título: ")
                  descripcion = input("\t Nueva descripción: ")
-                 #Agregar codigo
                  respuesta=nota.cambiar(id,titulo,descripcion)
                  if respuesta:
                      print(f"Se actualizo la nota {titulo} con exito")
+                     funciones.esperarTecla()
                  else:
                      print(f"No fue posible actualizar la nota, intentalo nuevamente ...")
-                 funciones.esperarTecla()
+                     funciones.esperarTecla()
             else:
              print(f"\n\t..No existen notas para este usuario ..")    
-            funciones.esperarTecla()
+             funciones.esperarTecla()
 
         elif opcion == '4' or opcion=="ELIMINAR":
             funciones.borrarPantalla()
@@ -118,15 +118,16 @@ def menu_notas(usuario_id,nombre,apellidos):
                print(f"{fila[0]:<10}{fila[2]:<15}{fila[3]:<30}{fila[4]}")
             print(f"-"*80)
             resp=input("¿Deseas borrar alguna nota? (Si/No): ").lower().strip()
-            print(f"\n \t .:: {nombre} {apellidos}, vamos a borrar un Nota ::. \n")
-            id = input("\t \t ID de la nota a eliminar: ")
-            #Agregar codigo
-            respuesta=nota.borrar(id)
-            if respuesta:
-                print(f"Se borro la nota {id} con exito")
-            else:
-                print(f"No fue posible borrar la nota, intentalo nuevamente ...")
-            funciones.esperarTecla()    
+            if resp=="si":
+                print(f"\n \t .:: {nombre} {apellidos}, vamos a borrar un Nota ::. \n")
+                id = input("\t \t ID de la nota a eliminar: ")
+                #Agregar codigo
+                respuesta=nota.borrar(id)
+                if respuesta:
+                    print(f"Se borro la nota {id} con exito")
+                else:
+                    print(f"No fue posible borrar la nota, intentalo nuevamente ...")
+                funciones.esperarTecla()    
         elif opcion == '5' or opcion=="SALIR":
             break
         else:
