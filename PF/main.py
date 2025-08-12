@@ -281,6 +281,9 @@ def main():
                             esperar_tecla()
 
                         elif opcion_admin == "6":  # Volver
+
+                            print("\nSalió del menú de administración de tablas")
+                            esperar_tecla()
                             break
                             
                         else:
